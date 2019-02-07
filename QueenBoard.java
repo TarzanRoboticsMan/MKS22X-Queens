@@ -1,4 +1,8 @@
 public class QueenBoard{
+  /*
+  2D array stores QueenBoard
+  -1 is Queen, and 
+  */
   private int[][]board;
 
   public QueenBoard(int size){}
@@ -7,19 +11,15 @@ public class QueenBoard{
   private boolean removeQueen(int r, int c)
 
 
-  /**
-  *@return The output string formatted as follows:
-  *All numbers that represent queens are replaced with 'Q'
-  *all others are displayed as underscores '_'
-  *There are spaces between each symbol:
-  *"""_ _ Q _
-  *Q _ _ _
-
-  *_ _ _ Q
-
-  *_ Q _ _"""
-  *(pythonic string notation for clarity,
-  *excludes the character up to the *)
+  /*
+  @return The output string formatted as follows:
+  All numbers that represent queens are replaced with 'Q'
+  all others are displayed as underscores '_'
+  There are spaces between each symbol:
+  _ _ Q _
+  Q _ _ _
+  _ _ _ Q
+  _ Q _ _
   */
   public String toString(){}
 
