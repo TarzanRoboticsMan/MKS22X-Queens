@@ -12,7 +12,11 @@ public class QueenBoard{
     for(int y:board) board[x][c] -=1;
     board[r][c] = -1;
   }
-  private boolean removeQueen(int r, int c)
+  private boolean removeQueen(int r, int c){
+    for(int x:board[r]) board[r][x] +=1;
+    for(int y:board) board[x][c] +=1;
+    board[r][c] = 0;
+  }
 
 
   /*
