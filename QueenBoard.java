@@ -1,6 +1,6 @@
 public class QueenBoard{
   public static void main(String[]args){
-    QueenBoard obj = new QueenBoard();
+    QueenBoard obj = new QueenBoard(5);
     obj.addQueen(1,1);
     obj.addQueen(3,3);
     System.out.println(obj);
@@ -18,13 +18,15 @@ public class QueenBoard{
 
   private boolean addQueen(int r, int c){
     for(int x:board[r]) board[r][x] -=1;
-    for(int y:board) board[x][c] -=1;
+    for(int y:board[r]) board[y][c] -=1;  //sloppy use of board[r], only works 4 squares
     board[r][c] = -1;
+    return true;
   }
   private boolean removeQueen(int r, int c){
     for(int x:board[r]) board[r][x] +=1;
-    for(int y:board) board[x][c] +=1;
+    for(int y:board[r]) board[y][c] +=1; //sloppy use of board[r], only works 4 squares
     board[r][c] = 0;
+    return true;
   }
 
 
@@ -39,12 +41,13 @@ public class QueenBoard{
   _ Q _ _
   */
   public String toString(){
-    for(int row:board){
+    String ans ="";
+    for(int row:board[0]){  //sloppy use of board[r], only works 4 squares
       for(int col:board[row]){
-        if(board[row][col]==-1) System.out.print("Q ");
-        else System.out.print("_ ");
+        if(board[row][col]==-1) ans+="Q ";
+        else ans+="_ ";
       }
-      System.out.println();
+      return ans;
     }
 
   }
