@@ -4,12 +4,13 @@ public class QueenBoard{
   private int[][]board;
 
   public QueenBoard(int size){
-    board = new int[size][size]
+    board = new int[size][size];
   }
 
   private boolean addQueen(int r, int c){
+    for(int x:board[r]) board[r][x] -=1;
+    for(int y:board) board[x][c] -=1;
     board[r][c] = -1;
-    for(int x:board[r])
   }
   private boolean removeQueen(int r, int c)
 
