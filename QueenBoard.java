@@ -1,6 +1,6 @@
 public class QueenBoard{
   public static void main(String[]args){
-    QueenBoard obj = new QueenBoard;
+    QueenBoard obj = new QueenBoard();
     obj.addQueen(1,1);
     obj.addQueen(3,3);
     System.out.println(obj);
@@ -39,7 +39,7 @@ public class QueenBoard{
   _ Q _ _
   */
   public String toString(){
-    for(int row:board[]){
+    for(int row:board){
       for(int col:board[row]){
         if(board[row][col]==-1) System.out.print("Q ");
         else System.out.print("_ ");
