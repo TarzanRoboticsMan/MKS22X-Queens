@@ -1,13 +1,16 @@
 public class QueenBoard{
-  /*
-  2D array stores QueenBoard
-  -1 is Queen, and 
-  */
+  //2D array stores QueenBoard
+  //-1 is Queen, and
   private int[][]board;
 
-  public QueenBoard(int size){}
+  public QueenBoard(int size){
+    board = new int[size][size]
+  }
 
-  private boolean addQueen(int r, int c)
+  private boolean addQueen(int r, int c){
+    board[r][c] = -1;
+    for(int x:board[r])
+  }
   private boolean removeQueen(int r, int c)
 
 
