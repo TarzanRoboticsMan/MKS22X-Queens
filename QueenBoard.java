@@ -1,4 +1,13 @@
 public class QueenBoard{
+  public static void main(String[]args){
+    QueenBoard obj = new QueenBoard;
+    obj.addQueen(1,1);
+    obj.addQueen(3,3);
+    System.out.println(obj);
+    obj.addQueen(4,2);
+    obj.removeQueen(4,2);
+    System.out.println(obj);
+  }
   //2D array stores QueenBoard
   //-1 is Queen, and
   private int[][]board;
@@ -29,7 +38,16 @@ public class QueenBoard{
   _ _ _ Q
   _ Q _ _
   */
-  public String toString(){}
+  public String toString(){
+    for(int row:board[]){
+      for(int col:board[row]){
+        if(board[row][col]==-1) System.out.print("Q ");
+        else System.out.print("_ ");
+      }
+      System.out.println();
+    }
+
+  }
 
 
 
