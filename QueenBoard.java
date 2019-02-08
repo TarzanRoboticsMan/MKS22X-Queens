@@ -1,6 +1,6 @@
 public class QueenBoard{
   public static void main(String[]args){
-    QueenBoard obj = new QueenBoard(5);
+    QueenBoard obj = new QueenBoard(6);
     obj.addQueen(1,1);
     obj.addQueen(3,3);
     System.out.println(obj);
@@ -17,14 +17,14 @@ public class QueenBoard{
   }
 
   private boolean addQueen(int r, int c){
-    for(int x:board[r]) board[r][x] -=1;
-    for(int y:board[r]) board[y][c] -=1;  //sloppy use of board[r], only works 4 squares
+    for(int x=0;x<board[r].length;x++) board[r][x] +=1;
+    for(int y=0;y<board.length;y++) board[y][c] +=1;
     board[r][c] = -1;
     return true;
   }
   private boolean removeQueen(int r, int c){
-    for(int x:board[r]) board[r][x] +=1;
-    for(int y:board[r]) board[y][c] +=1; //sloppy use of board[r], only works 4 squares
+    for(int x=0;x<board[r].length;x++) board[r][x] -=1;
+    for(int y=0;y<board.length;y++) board[y][c] -=1;
     board[r][c] = 0;
     return true;
   }
@@ -42,33 +42,31 @@ public class QueenBoard{
   */
   public String toString(){
     String ans ="";
-    for(int row:board[0]){  //sloppy use of board[r], only works 4 squares
-      for(int col:board[row]){
+    for(int row=0;row<board.length;row++){
+      for(int col=0;col<board[row].length;col++){
         if(board[row][col]==-1) ans+="Q ";
         else ans+="_ ";
       }
-      return ans;
+      ans+="\n";
     }
-
+    return ans;
   }
-
-
-
-  /**
-  *@return false when the board is not solveable and leaves the board filled with zeros;
-
-  *        true when the board is solveable, and leaves the board in a solved state
-
-  *@throws IllegalStateException when the board starts with any non-zero value
-
-  */
-  public boolean solve(){}
-
-  /**
-  *@return the number of solutions found, and leaves the board filled with only 0's
-  *@throws IllegalStateException when the board starts with any non-zero value
-  */
-  public int countSolutions(){}
-
-
 }
+
+
+
+/**
+*@return false when the board is not solveable and leaves the board filled with zeros;
+
+*        true when the board is solveable, and leaves the board in a solved state
+
+*@throws IllegalStateException when the board starts with any non-zero value
+
+*/
+//public boolean solve()
+
+/**
+*@return the number of solutions found, and leaves the board filled with only 0's
+*@throws IllegalStateException when the board starts with any non-zero value
+*/
+//public int countSolutions()
