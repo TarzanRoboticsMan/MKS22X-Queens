@@ -10,6 +10,8 @@ public class QueenBoard{
     System.out.println(obj);
     QueenBoard obj2 = new QueenBoard(4);
     if(obj2.solve()) System.out.println(obj2);
+    QueenBoard obj3 = new QueenBoard(5);
+    System.out.println(obj3.countSolutions());
   }
   //2D array stores QueenBoard
   //-1 is Queen, and
@@ -124,7 +126,7 @@ public class QueenBoard{
   }
 
   private int solve2(int x, int solutions){
-    if(x>board.length) return 1;
+    if(x>=board.length) return 1;
     for(int c=0;c<board[x].length;c++){
       if(addQueen(x,c)){
         solutions += solve2(x+1, 0);
