@@ -17,15 +17,20 @@ public class QueenBoard{
   }
 
   private boolean addQueen(int r, int c){
-    if(board[r][c]==0 &&
-    for(int x=0;x<board[r].length;x++) board[r][x] != -1 &&
-    for(int y=0;y<board.length;y++)) board[r][x] != -1){
+    boolean check = true;
+    for(int x=0;x<board[r].length;x++){
+      if(board[r][x] == -1) check = false;
+    }
+    for(int y=0;y<board.length;y++){
+      if(board[r][x] == -1) check = false;
+    }
+    if(board[r][c]==0 && check){
       for(int x=0;x<board[r].length;x++) board[r][x] +=1;
       for(int y=0;y<board.length;y++) board[y][c] +=1;
       board[r][c] = -1;
-      return true
+      return true;
     }
-    return false
+    return false;
   }
   private boolean removeQueen(int r, int c){
     for(int x=0;x<board[r].length;x++) board[r][x] -=1;
