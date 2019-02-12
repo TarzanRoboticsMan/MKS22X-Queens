@@ -70,20 +70,17 @@ public class QueenBoard{
 */
 public boolean solve(){
   return solveR(0);
-      return true
-   for each row:
-       if addQueen:
-           if solveR(col+1):
-               return true
-           removeQueen
-   return false
 }
-private boolean solveR(){
-  or(int r=0;r<board.length;r++){
-    for(int c=0;r<board[c].length;c++){
-      if(addQueen(r,c))
+
+private boolean solveR(int x){
+  if(x>board.length) return true;
+  for(int c=0;c<board[x].length;c++){
+    if(addQueen(x,c)){
+      if solveR(x+1) return true;
+      removeQueen(x,c);
     }
   }
+  return false;
 }
 
 /**
