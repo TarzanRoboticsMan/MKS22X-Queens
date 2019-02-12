@@ -68,7 +68,23 @@ public class QueenBoard{
 *@throws IllegalStateException when the board starts with any non-zero value
 
 */
-//public boolean solve()
+public boolean solve(){
+  return solveR(0);
+      return true
+   for each row:
+       if addQueen:
+           if solveR(col+1):
+               return true
+           removeQueen
+   return false
+}
+private boolean solveR(){
+  or(int r=0;r<board.length;r++){
+    for(int c=0;r<board[c].length;c++){
+      if(addQueen(r,c))
+    }
+  }
+}
 
 /**
 *@return the number of solutions found, and leaves the board filled with only 0's
