@@ -1,5 +1,5 @@
 public class QueenBoard{
-  public static void main(String[]args){
+  /*public static void main(String[]args){
     QueenBoard obj = new QueenBoard(6);
     obj.addQueen(1,1);
     obj.addQueen(3,3);
@@ -7,7 +7,7 @@ public class QueenBoard{
     obj.addQueen(4,2);
     obj.removeQueen(4,2);
     System.out.println(obj);
-  }
+  }*/
   //2D array stores QueenBoard
   //-1 is Queen, and
   private int[][]board;
@@ -56,7 +56,6 @@ public class QueenBoard{
     }
     return ans;
   }
-}
 
 
 
@@ -69,6 +68,8 @@ public class QueenBoard{
 
 */
 public boolean solve(){
+  int[][] test = new int[][]
+  if(!board.equals(test)) throw new IllegalStateException();
   return solveR(0);
 }
 
@@ -76,7 +77,7 @@ private boolean solveR(int x){
   if(x>board.length) return true;
   for(int c=0;c<board[x].length;c++){
     if(addQueen(x,c)){
-      if solveR(x+1) return true;
+      if(solveR(x+1))return true;
       removeQueen(x,c);
     }
   }
@@ -88,3 +89,4 @@ private boolean solveR(int x){
 *@throws IllegalStateException when the board starts with any non-zero value
 */
 //public int countSolutions()
+}
