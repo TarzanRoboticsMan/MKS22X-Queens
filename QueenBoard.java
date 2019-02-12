@@ -16,15 +16,22 @@ public class QueenBoard{
     board = new int[size][size];
   }
 
-  private void addQueen(int r, int c){
-    for(int x=0;x<board[r].length;x++) board[r][x] +=1;
-    for(int y=0;y<board.length;y++) board[y][c] +=1;
-    board[r][c] = -1;
+  private boolean addQueen(int r, int c){
+    if(board[r][c]==0 &&
+    for(int x=0;x<board[r].length;x++) board[r][x] != -1 &&
+    for(int y=0;y<board.length;y++)) board[r][x] != -1){
+      for(int x=0;x<board[r].length;x++) board[r][x] +=1;
+      for(int y=0;y<board.length;y++) board[y][c] +=1;
+      board[r][c] = -1;
+      return true
+    }
+    return false
   }
-  private void removeQueen(int r, int c){
+  private boolean removeQueen(int r, int c){
     for(int x=0;x<board[r].length;x++) board[r][x] -=1;
     for(int y=0;y<board.length;y++) board[y][c] -=1;
     board[r][c] = 0;
+    return true;
   }
 
 
