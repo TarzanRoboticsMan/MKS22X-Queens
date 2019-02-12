@@ -103,7 +103,7 @@ public class QueenBoard{
     if(x>board.length) return 1;
     for(int c=0;c<board[x].length;c++){
       if(addQueen(x,c)){
-        solutions += solveR(x+1);
+        solutions += solve2(x+1, 0);
         removeQueen(x,c);
       }
     }
