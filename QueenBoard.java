@@ -1,5 +1,5 @@
 public class QueenBoard{
-  /*public static void main(String[]args){
+    /*public static void main(String[]args){
     QueenBoard obj = new QueenBoard(6);
     obj.addQueen(1,1);
     obj.addQueen(3,3);
@@ -64,34 +64,49 @@ public class QueenBoard{
 
 
 
-/**
-*@return false when the board is not solveable and leaves the board filled with zeros;
+  /**
+  *@return false when the board is not solveable and leaves the board filled with zeros;
 
-*        true when the board is solveable, and leaves the board in a solved state
+  *        true when the board is solveable, and leaves the board in a solved state
 
-*@throws IllegalStateException when the board starts with any non-zero value
+  *@throws IllegalStateException when the board starts with any non-zero value
 
-*/
-public boolean solve(){
-  int[][] test = new int[board.length][board.length];
-  if(!board.equals(test)) throw new IllegalStateException();
-  return solveR(0);
-}
-
-private boolean solveR(int x){
-  if(x>board.length) return true;
-  for(int c=0;c<board[x].length;c++){
-    if(addQueen(x,c)){
-      if(solveR(x+1))return true;
-      removeQueen(x,c);
-    }
+  */
+  public boolean solve(){
+    int[][] test = new int[board.length][board.length];
+    if(!board.equals(test)) throw new IllegalStateException();
+    return solveR(0);
   }
-  return false;
-}
 
-/**
-*@return the number of solutions found, and leaves the board filled with only 0's
-*@throws IllegalStateException when the board starts with any non-zero value
-*/
-//public int countSolutions()
+  private boolean solveR(int x){
+    if(x>board.length) return true;
+    for(int c=0;c<board[x].length;c++){
+      if(addQueen(x,c)){
+        if(solveR(x+1))return true;
+        removeQueen(x,c);
+      }
+    }
+    return false;
+  }
+
+  /**
+  *@return the number of solutions found, and leaves the board filled with only 0's
+  *@throws IllegalStateException when the board starts with any non-zero value
+  */
+  public int countSolutions(){
+    int[][] test = new int[board.length][board.length];
+    if(!board.equals(test)) throw new IllegalStateException();
+    return solve2(0, 0);
+  }
+
+  private int solve2(int x, int solutions){
+    if(x>board.length) return 1;
+    for(int c=0;c<board[x].length;c++){
+      if(addQueen(x,c)){
+        solutions += solveR(x+1);
+        removeQueen(x,c);
+      }
+    }
+    return solutions;
+  }
 }
