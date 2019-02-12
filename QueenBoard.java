@@ -1,5 +1,6 @@
+import java.util.Arrays;
 public class QueenBoard{
-    /*public static void main(String[]args){
+  public static void main(String[]args){
     QueenBoard obj = new QueenBoard(6);
     obj.addQueen(1,1);
     obj.addQueen(3,3);
@@ -7,7 +8,9 @@ public class QueenBoard{
     obj.addQueen(4,2);
     obj.removeQueen(4,2);
     System.out.println(obj);
-  }*/
+    QueenBoard obj2 = new QueenBoard(4);
+    if(obj2.solve()) System.out.println(obj2);
+  }
   //2D array stores QueenBoard
   //-1 is Queen, and
   private int[][]board;
@@ -73,13 +76,32 @@ public class QueenBoard{
 
   */
   public boolean solve(){
-    int[][] test = new int[board.length][board.length];
-    if(!board.equals(test)) throw new IllegalStateException();
+    if(!isEmpty(board)){
+      printArray2(board);
+      throw new IllegalStateException();
+    }
     return solveR(0);
   }
 
+
+  private void printArray2(int[][] array){
+    for (int i = 0; i < array.length; i++) {
+      printArray(array[i]);
+      System.out.println();
+    }
+  }
+
+  private void printArray(int[] anArray){
+    for (int i = 0; i < anArray.length; i++) {
+      if (i > 0) {
+        System.out.print(", ");
+      }
+      System.out.print(anArray[i]);
+    }
+  }
+
   private boolean solveR(int x){
-    if(x>board.length) return true;
+    if(x>=board.length) return true;
     for(int c=0;c<board[x].length;c++){
       if(addQueen(x,c)){
         if(solveR(x+1))return true;
@@ -94,8 +116,10 @@ public class QueenBoard{
   *@throws IllegalStateException when the board starts with any non-zero value
   */
   public int countSolutions(){
-    int[][] test = new int[board.length][board.length];
-    if(!board.equals(test)) throw new IllegalStateException();
+    if(!isEmpty(board)){
+      printArray2(board);
+      throw new IllegalStateException();
+    }
     return solve2(0, 0);
   }
 
@@ -108,5 +132,14 @@ public class QueenBoard{
       }
     }
     return solutions;
+  }
+
+  private boolean isEmpty(int[][] d){
+    for(int x=0;x<d.length;x++){
+      for(int y=0;y<d[x].length;y++){
+        if (d[x][y]!=0) return false;
+      }
+    }
+    return true;
   }
 }
