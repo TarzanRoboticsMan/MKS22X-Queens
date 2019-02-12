@@ -22,7 +22,7 @@ public class QueenBoard{
       if(board[r][x] == -1) check = false;
     }
     for(int y=0;y<board.length;y++){
-      if(board[r][x] == -1) check = false;
+      if(board[r][y] == -1) check = false;
     }
     if(board[r][c]==0 && check){
       for(int x=0;x<board[r].length;x++) board[r][x] +=1;
@@ -73,7 +73,7 @@ public class QueenBoard{
 
 */
 public boolean solve(){
-  int[][] test = new int[][]
+  int[][] test = new int[board.length][board.length];
   if(!board.equals(test)) throw new IllegalStateException();
   return solveR(0);
 }
